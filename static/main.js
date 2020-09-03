@@ -26,7 +26,8 @@ const app = new Vue({
         }
     },
     created() {
-        this.socket = io('http://localhost:3000')
+        let { origin } = window.location;
+        this.socket = io(`${origin}`);
         this.socket.on('msgToClient', (message) => {
             this.receivedMessage(message)
         })
