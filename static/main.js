@@ -31,5 +31,8 @@ const app = new Vue({
         this.socket.on('msgToClient', (message) => {
             this.receivedMessage(message)
         })
+        this.socket.on('msgToClient2', (message) => {
+            console.log('msgToClient2', message);
+        })
     }
 })
