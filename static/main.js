@@ -27,7 +27,9 @@ const app = new Vue({
     },
     created() {
         let { origin } = window.location;
-        this.socket = io(`${origin}`);
+        this.socket = io(`${origin}`, {
+            query: 'token=abc'
+        });
         this.socket.on('msgToClient', (message) => {
             this.receivedMessage(message)
         })
